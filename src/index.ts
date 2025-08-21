@@ -251,7 +251,7 @@ class NextJSDocsServer {
 
         switch (name) {
           case "get_all_docs":
-            return await this.getAllDocsForClaude();
+            return await this.getAllDocsForClaude(args as { context?: string; filePath?: string });
           
           default:
             throw new McpError(
@@ -268,7 +268,15 @@ class NextJSDocsServer {
     });
   }
 
-  private async getAllDocsForClaude() {
+  private async getAllDocsForClaude(args?: { context?: string; filePath?: string }) {
+    const header: string[] = [];
+    header.push("✅ Next.js Docs MCP executed successfully.");
+    if (args?.context) {
+      header.push(`Context: ${args.context}`);
+    }
+    if (args?.filePath) {
+      header.push(`Active file: ${args.filePath}`);
+    }
     const allDocs: Array<{title: string, url: string, description: string, category: string}> = [];
 
     // データベースから全ドキュメントを取得
@@ -292,7 +300,8 @@ class NextJSDocsServer {
       content: [
         {
           type: "text",
-          text: `📚 **Next.js Documentation - All Available Documents**\n\n` +
+          text: header.join("\n") +
+                `\n\n📚 **Next.js Documentation - All Available Documents**\n\n` +
                 `Total documents: ${allDocs.length}\n\n` +
                 `以下は全てのNext.jsドキュメントURLです。あなたのクエリに関連するドキュメントをこれらの中から選んでください：\n\n` +
                 `${formattedDocs}\n\n` +
