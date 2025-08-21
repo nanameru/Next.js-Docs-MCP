@@ -26,14 +26,14 @@ A Model Context Protocol (MCP) server that provides all Next.js documentation UR
   "mcpServers": {
     "nextjs-docs-mcp": {
       "command": "npx",
-      "args": ["@your-org/nextjs-docs-mcp@latest"]
+      "args": ["@nanameru/nextjs-docs-mcp@latest"]
     }
   }
 }
 ```
 
-[Install in VS Code](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40your-org%2Fnextjs-docs-mcp%40latest%22%5D%7D)  
-[Install in VS Code Insiders](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40your-org%2Fnextjs-docs-mcp%40latest%22%5D%7D)
+[Install in VS Code](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40nanameru%2Fnextjs-docs-mcp%40latest%22%5D%7D)
+[Install in VS Code Insiders](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40nanameru%2Fnextjs-docs-mcp%40latest%22%5D%7D)
 
 ### Client-Specific Setup
 
@@ -43,7 +43,7 @@ A Model Context Protocol (MCP) server that provides all Next.js documentation UR
 Use the Claude Code CLI to add the MCP server:
 
 ```bash
-claude mcp add nextjs-docs-mcp -- npx @your-org/nextjs-docs-mcp@latest
+claude mcp add nextjs-docs-mcp -- npx @nanameru/nextjs-docs-mcp@latest
 ```
 
 Remove if needed:
@@ -69,7 +69,7 @@ Use the following:
 - Name: nextjs-docs-mcp
 - Type: command
 - Command: npx
-- Args: @your-org/nextjs-docs-mcp@latest
+- Args: @nanameru/nextjs-docs-mcp@latest
 - Auto start: on (optional)
 </details>
 
@@ -79,7 +79,7 @@ Use the following:
 Add via CLI:
 
 ```bash
-code --add-mcp '{"name":"nextjs-docs-mcp","command":"npx","args":["@your-org/nextjs-docs-mcp@latest"]}'
+code --add-mcp '{"name":"nextjs-docs-mcp","command":"npx","args":["@nanameru/nextjs-docs-mcp@latest"]}'
 ```
 
 Or use the install links above.
@@ -90,7 +90,7 @@ Or use the install links above.
 
 Add MCP Server with:
 - Command: npx
-- Args: ["@your-org/nextjs-docs-mcp@latest"]
+- Args: ["@nanameru/nextjs-docs-mcp@latest"]
 </details>
 
 <details>
@@ -99,7 +99,7 @@ Add MCP Server with:
 Advanced settings → Extensions → Add custom extension:
 - Type: STDIO
 - Command: npx
-- Args: @your-org/nextjs-docs-mcp@latest
+- Args: @nanameru/nextjs-docs-mcp@latest
 - Enabled: true
 </details>
 
@@ -116,7 +116,7 @@ Example `~/.config/opencode/opencode.json`:
       "type": "local",
       "command": [
         "npx",
-        "@your-org/nextjs-docs-mcp@latest"
+        "@nanameru/nextjs-docs-mcp@latest"
       ],
       "enabled": true
     }
@@ -179,7 +179,7 @@ The tool returns a formatted list containing:
 ### Integration with Claude Code:
 ```bash
 # Claude Code内で使用
-claude mcp add nextjs-docs-mcp -- npx @your-org/nextjs-docs-mcp@latest
+claude mcp add nextjs-docs-mcp -- npx @nanameru/nextjs-docs-mcp@latest
 ```
 
 Then Claude can automatically call the tool when users ask Next.js-related questions.
@@ -194,7 +194,7 @@ npm run build
 
 ### Publishing to npm
 
-1. Update the package name in `package.json` to your scope
+1. Update the package name in `package.json` to your scope (e.g., @nanameru/nextjs-docs-mcp)
 2. Build the project: `npm run build`
 3. Publish: `npm publish`
 
