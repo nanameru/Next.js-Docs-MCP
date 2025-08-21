@@ -1,0 +1,41 @@
+{
+  "name": "@your-org/nextjs-docs-mcp",
+  "version": "1.0.0",
+  "description": "MCP server providing access to Next.js documentation URLs without AI dependency",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "nextjs-docs-mcp": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "prepare": "npm run build",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "nextjs",
+    "documentation",
+    "server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.3",
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  }
+}

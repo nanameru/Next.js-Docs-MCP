@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nextjs-docs-mcp": {
+      "command": "npx",
+      "args": ["@your-org/nextjs-docs-mcp@latest"],
+      "autoStart": true
+    }
+  }
+}
