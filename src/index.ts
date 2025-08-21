@@ -239,9 +239,11 @@ class NextJSDocsServer {
                 },
                 status: {
                   type: "string",
-                  description: "Optional cosmetic flag (e.g., 'executing') so clients log arguments/header",
+                  description: "Cosmetic flag to ensure clients log arguments/header (e.g., 'executing')",
+                  default: "executing",
                 },
               },
+              required: ["status"],
             },
           },
         ],
