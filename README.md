@@ -32,8 +32,8 @@ A Model Context Protocol (MCP) server that provides all Next.js documentation UR
 }
 ```
 
-[Install in VS Code](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40nanameru%2Fnextjs-docs-mcp%40latest%22%5D%7D)
-[Install in VS Code Insiders](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40nanameru%2Fnextjs-docs-mcp%40latest%22%5D%7D)
+[Install in VS Code](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40taiyokimura%2Fnextjs-docs-mcp%40latest%22%5D%7D)
+[Install in VS Code Insiders](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22nextjs-docs-mcp%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22%40taiyokimura%2Fnextjs-docs-mcp%40latest%22%5D%7D)
 
 ### Client-Specific Setup
 
