@@ -1,13 +1,13 @@
 # Next.js Docs MCP
 
-A Model Context Protocol (MCP) server that provides access to Next.js documentation URLs without requiring AI or external API dependencies. This server contains a comprehensive database of Next.js documentation pages and allows you to search and retrieve relevant documentation URLs based on your needs.
+A Model Context Protocol (MCP) server that provides all Next.js documentation URLs to AI agents like Claude for intelligent document selection. This server contains a comprehensive static database of Next.js documentation pages and enables AI agents to analyze and select the most relevant documentation based on user queries.
 
 ## Key Features
 
-- **AI-Free Documentation Access**: No AI dependencies - pure static URL database
-- **Free Next.js Documentation**: Access latest Next.js docs without API costs
-- **Comprehensive Coverage**: Contains URLs for getting started, routing, data fetching, API routes, deployment, and optimization
-- **Multiple Search Methods**: Keyword search, topic-based search, and complete topic listings
+- **AI Agent Integration**: Provides all documentation URLs for Claude and other AI agents to analyze and select relevant docs
+- **Comprehensive Static Database**: Contains 200+ Next.js documentation URLs across all categories
+- **No External Dependencies**: Pure static URL database with no API calls or crawling required
+- **Claude-Optimized**: Specifically designed for Claude to intelligently select relevant documentation
 - **npx-Ready**: No local installation needed - run via `npx` from any MCP client
 
 ## Requirements
@@ -140,57 +140,49 @@ Follow Windsurf MCP documentation and use the standard config above.
 
 ## Available Tools
 
-### 1. search_docs
-Search Next.js documentation by keywords.
+### 1. get_all_docs
+Get all Next.js documentation URLs for AI agents to analyze and select relevant ones.
 
 **Parameters:**
-- `query` (required): Search keywords (e.g., 'routing', 'api', 'deployment')
-- `limit` (optional): Maximum number of results to return (default: 5)
+- None required
 
-### 2. get_docs_by_topic
-Get Next.js documentation URLs by specific topic.
+**Description:**
+This tool returns a comprehensive list of all Next.js documentation URLs organized by categories. AI agents like Claude can use this list to analyze user queries and select the most relevant documentation pages. The tool provides structured data including titles, URLs, descriptions, and categories for intelligent document selection.
 
-**Parameters:**
-- `topic` (required): Topic category
-  - `getting-started`: Getting started guides
-  - `routing`: App Router and Pages Router
-  - `data-fetching`: Data fetching patterns
-  - `api-routes`: API route handlers
-  - `deployment`: Deployment guides
-  - `optimization`: Performance optimization
-
-### 3. list_all_topics
-List all available documentation topics and their URLs.
+**Response Format:**
+The tool returns a formatted list containing:
+- Document titles
+- Direct URLs to Next.js documentation
+- Brief descriptions
+- Category classifications
+- Total count of available documents
 
 ## Usage Examples
 
-### Search for routing documentation:
+### Get all Next.js documentation URLs:
 ```json
 {
-  "tool": "search_docs",
-  "arguments": {
-    "query": "routing",
-    "limit": 3
-  }
+  "tool": "get_all_docs"
 }
 ```
 
-### Get all deployment documentation:
-```json
-{
-  "tool": "get_docs_by_topic",
-  "arguments": {
-    "topic": "deployment"
-  }
-}
+### Claude Integration Example:
+1. User asks: "Next.jsのエラーを解消したいです"
+2. Claude calls: `get_all_docs`
+3. MCP server returns: All 200+ Next.js documentation URLs with titles, descriptions, and categories
+4. Claude analyzes the list and selects relevant documents:
+   - "Getting Started: Error Handling"
+   - "Routing: Error Handling"
+   - "API Routes Error Handling"
+5. Claude provides targeted documentation links to the user
+
+### Integration with Claude Code:
+```bash
+# Claude Code内で使用
+claude mcp add nextjs-docs-mcp -- npx @your-org/nextjs-docs-mcp@latest
 ```
 
-### List all available topics:
-```json
-{
-  "tool": "list_all_topics"
-}
-```
+Then Claude can automatically call the tool when users ask Next.js-related questions.
 
 ## Development
 
@@ -208,7 +200,17 @@ npm run build
 
 ### Updating Documentation URLs
 
-To update the documentation URLs, modify the `NEXTJS_DOCS_DATABASE` object in `src/index.ts`.
+The server uses a static database of Next.js documentation URLs. To update or add new documentation URLs, modify the `NEXTJS_DOCS_DATABASE` object in `src/index.ts`. The database is organized by categories and contains 200+ documentation pages covering:
+
+- Getting Started guides
+- Routing (App Router & Pages Router)
+- Data Fetching patterns
+- API Routes
+- Deployment guides
+- Performance optimization
+- Guides and best practices
+
+The static approach ensures fast response times and no external dependencies.
 
 ## License
 
