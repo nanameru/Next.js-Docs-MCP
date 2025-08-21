@@ -242,7 +242,7 @@ class NextJSDocsServer {
         switch (name) {
           case "get_all_docs":
             return await this.getAllDocsForClaude();
-
+          
           default:
             throw new McpError(
               ErrorCode.MethodNotFound,
@@ -292,7 +292,7 @@ class NextJSDocsServer {
         },
       ],
     };
-    }
+  }
 
   async run() {
     const transport = new StdioServerTransport();

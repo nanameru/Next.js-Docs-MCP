@@ -1,5 +1,5 @@
 {
-  "name": "@nanameru/nextjs-docs-mcp",
+  "name": "@taiyokimura/nextjs-docs-mcp",
   "version": "1.0.0",
   "description": "MCP server providing access to Next.js documentation URLs without AI dependency",
   "type": "module",
