@@ -237,6 +237,10 @@ class NextJSDocsServer {
                   type: "string",
                   description: "Optional current file path used by the client to decide invocation",
                 },
+                status: {
+                  type: "string",
+                  description: "Optional cosmetic flag (e.g., 'executing') so clients log arguments/header",
+                },
               },
             },
           },
@@ -268,7 +272,7 @@ class NextJSDocsServer {
     });
   }
 
-  private async getAllDocsForClaude(args?: { context?: string; filePath?: string }) {
+  private async getAllDocsForClaude(args?: { context?: string; filePath?: string; status?: string }) {
     const header: string[] = [];
     header.push("✅ Next.js Docs MCP executed successfully.");
     if (args?.context) {
@@ -276,6 +280,9 @@ class NextJSDocsServer {
     }
     if (args?.filePath) {
       header.push(`Active file: ${args.filePath}`);
+    }
+    if (args?.status) {
+      header.push(`Status: ${args.status}`);
     }
     const allDocs: Array<{title: string, url: string, description: string, category: string}> = [];
 
