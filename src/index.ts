@@ -225,10 +225,19 @@ class NextJSDocsServer {
         tools: [
           {
             name: "get_all_docs",
-            description: "Get all Next.js documentation URLs for Claude to analyze and select relevant ones",
+            description: "Provide all Next.js documentation URLs for AI agents.\n\nAuto-trigger guidance (for clients):\n- Run when the user asks about 'Next.js', 'Nextjs', 'Next', or mentions topics like 'App Router', 'Pages Router', 'Route Handlers', 'data fetching', 'deployment', 'turbopack', 'Vercel'.\n- Run when the user reports errors containing keywords like 'Next.js error', 'build error', 'routing error', 'hydration error', 'module not found', 'next.config.js', 'middleware', 'Image', 'Link', 'Route Handler'.\n- Run when an active file path suggests a Next.js app, e.g. 'next.config.js', 'app/**', 'pages/**', 'middleware.ts/js', or imports starting with 'next/'.\nThis tool returns a comprehensive list so the agent can pick the most relevant docs.",
             inputSchema: {
               type: "object",
-              properties: {},
+              properties: {
+                context: {
+                  type: "string",
+                  description: "Optional user query, error message, or code snippet used by the client to decide invocation",
+                },
+                filePath: {
+                  type: "string",
+                  description: "Optional current file path used by the client to decide invocation",
+                },
+              },
             },
           },
         ],
